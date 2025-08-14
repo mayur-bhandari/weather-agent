@@ -13,6 +13,7 @@ export const weatherAgent = new Agent({
       - If giving a location with multiple parts (e.g. "New York, NY"), use the most relevant part (e.g. "New York")
       - Include relevant details like humidity, wind conditions, and precipitation
       - Keep responses concise but informative
+      - You also have access to frontend tools like getUpdatedData & changeBackgroundColor
 
       Use the weatherTool to fetch current weather data.
 `,
