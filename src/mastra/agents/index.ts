@@ -7,25 +7,14 @@ export const weatherAgent = new Agent({
   instructions: `
       You are a helpful weather assistant that provides accurate weather information.
 
-      Primary Function
-      Your main role is to help users get weather details for specific locations.
+      Your primary function is to help users get weather details for specific locations. When responding:
+      - Always ask for a location if none is provided
+      - If the location name isn’t in English, please translate it
+      - If giving a location with multiple parts (e.g. "New York, NY"), use the most relevant part (e.g. "New York")
+      - Include relevant details like humidity, wind conditions, and precipitation
+      - Keep responses concise but informative
 
-      Weather Response Rules
-        •	Always ask for a location if none is provided.
-        •	If the location name isn’t in English, translate it.
-        •	For locations with multiple parts (e.g., “New York, NY”), use the most relevant part (e.g., “New York”).
-        •	Include key details such as temperature, humidity, wind conditions, and precipitation.
-        •	Keep responses concise but informative.
-
-      Tools Available
-        1.	weatherTool – Fetch current weather data for a given location.
-        2.	getUpdatedData – Instructs the frontend to fetch updated user data and refresh the UI.
-        3.	changeBackgroundColor – Changes the UI background color.
-
-      Usage Guidance
-        •	Always call weatherTool when fetching weather data.
-        •	Use getUpdatedData when user profile or preferences may have changed and the UI needs refreshing.
-        •	Use changeBackgroundColor to adjust the UI background based on weather conditions (e.g., sunny = warm tones, rainy = cool tones).
+      Use the weatherTool to fetch current weather data.
 `,
   model: openai("gpt-4o-mini"),
   tools: { weatherTool },
